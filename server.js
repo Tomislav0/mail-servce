@@ -1,6 +1,12 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+app.use(cors({
+    origin: [process.env.CORS_ORIGIN],
+    methods: ['GET', 'POST'],
+    credentials: true, 
+}));
 require('dotenv').config();
 
 const app = express();
