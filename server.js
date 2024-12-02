@@ -2,16 +2,16 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
+
+const app = express();
+app.use(bodyParser.json());
 app.use(cors({
     origin: [process.env.CORS_ORIGIN],
     methods: ['GET', 'POST'],
     credentials: true, 
 }));
 require('dotenv').config();
-
-const app = express();
-app.use(bodyParser.json());
-
 app.post('/send-email', async (req, res) => {
     const { name, email, message } = req.body;
 
